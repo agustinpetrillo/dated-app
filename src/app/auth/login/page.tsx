@@ -1,18 +1,18 @@
 const Login = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-l from-red-950 to-teal-950">
-      <div className="max-w-md w-full p-6 bg-slate-300 rounded-md shadow-md">
-        <h2 className="text-2xl font-semibold text-center mb-4">Login</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-l from-red-950 to-teal-950">
+      <div className="w-full max-w-md p-6 rounded-md shadow-md bg-slate-300">
+        <h2 className="mb-4 text-2xl font-semibold text-center">Login</h2>
         <form>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block mb-2 text-sm font-bold text-gray-700"
               htmlFor="username"
             >
               Username
             </label>
             <input
-              className="border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
               placeholder="Enter your username"
@@ -20,13 +20,13 @@ const Login = () => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block mb-2 text-sm font-bold text-gray-700"
               htmlFor="password"
             >
               Password
             </label>
             <input
-              className="border rounded-md w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
               placeholder="Enter your password"
@@ -34,7 +34,7 @@ const Login = () => {
           </div>
           <div className="mb-4">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline"
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Log In

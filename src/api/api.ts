@@ -1,13 +1,17 @@
-const API = "http://localhost:4000/api";
+import { CreateUser, UserLogin } from "@/types";
 
-interface User {
-  email: string;
-  password: string | number;
-  username: string;
-}
+export const createUser = async (dataUser: CreateUser) => {
+  await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/signup`, {
+    method: "POST",
+    body: JSON.stringify(dataUser),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
 
-export const createUser = async (dataUser: User) => {
-  await fetch(`${API}/auth/signup`, {
+export const loginUser = async (dataUser: UserLogin) => {
+  await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`, {
     method: "POST",
     body: JSON.stringify(dataUser),
     headers: {
