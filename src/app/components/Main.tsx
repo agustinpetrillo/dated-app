@@ -1,5 +1,5 @@
 const Main = () => {
-  return <div>Main</div>;
+  return <div className="flex justify-center">DATE ME</div>;
 };
 
 export default Main;
