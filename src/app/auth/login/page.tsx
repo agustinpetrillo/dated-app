@@ -1,4 +1,13 @@
+"use client";
+import { useState } from "react";
+import { UserLogin } from "@/types";
+
 const Login = () => {
+  const [userDataSignUp, setUserDataSignUp] = useState<UserLogin>({
+    email: "",
+    password: "",
+  });
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-l from-red-950 to-teal-950">
       <div className="w-full max-w-md p-6 rounded-md shadow-md bg-slate-300">

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { UserData } from "@/types";
+import { CreateUser } from "@/types";
 
 const SignUp = () => {
-  const [userData, setUserData] = useState<UserData>({
+  const [userDataSignUp, setUserDataSignUp] = useState<CreateUser>({
     username: "",
     email: "",
     password: "",
