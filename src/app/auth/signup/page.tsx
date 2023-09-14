@@ -1,9 +1,11 @@
 "use client";
 
 import { FormEvent, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
   const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -11,25 +13,28 @@ const SignUp = () => {
     const formData = new FormData(e.currentTarget);
 
     try {
-      await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/signup`, {
-        method: "POST",
-        body: JSON.stringify({
-          email: formData.get("email"),
-          name: formData.get("name"),
-          password: formData.get("password"),
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/signup`,
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: formData.get("email"),
+            name: formData.get("name"),
+            password: formData.get("password"),
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res?.ok) return router.push("/home");
+
       if (formRef.current) {
         setTimeout(() => {
           formRef.current!.reset();
         }, 1500);
       }
-    } catch (error) {
-      console.log(`the error was: ${error}`);
-    }
+    } catch (error) {}
   };
 
   return (
