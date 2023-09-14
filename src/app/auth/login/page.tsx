@@ -3,10 +3,12 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/reutilizable/Loader";
+// import axios, { AxiosError } from "axios";
 
 const Login = () => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,11 +33,25 @@ const Login = () => {
       if (res?.ok) return router.push("/home");
     } catch (error) {}
 
+    // try {
+    //   const res = await axios.post(
+    //     `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
+    //     {
+    //       email: formData.get("email"),
+    //       password: formData.get("password"),
+    //     }
+    //   );
+    //   // if (res?.ok) return router.push("/home");
+    // } catch (error) {
+    //   if (error instanceof AxiosError) setError(error.response?.data.message);
+    // }
+
     setLoading(false);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-l from-red-950 to-teal-950">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-l from-red-950 to-teal-950">
+      <p className="text-white">{error}</p>
       <div className="w-full max-w-md p-6 rounded-md shadow-md bg-slate-300">
         <h2 className="mb-4 text-2xl font-semibold text-center">Login</h2>
         <form onSubmit={(e) => handleSubmit(e)}>
