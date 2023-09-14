@@ -20,6 +20,7 @@ const SignUp = () => {
           body: JSON.stringify({
             email: formData.get("email"),
             name: formData.get("name"),
+            last_name: formData.get("last_name"),
             password: formData.get("password"),
           }),
           headers: {
@@ -45,16 +46,31 @@ const SignUp = () => {
           <div className="mb-4">
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlFor="username"
+              htmlFor="name"
             >
-              Username
+              Name
             </label>
             <input
               className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
-              id="username"
+              id="name"
               type="text"
-              placeholder="Enter your username"
+              placeholder="Enter your name"
               name="name"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block mb-2 text-sm font-bold text-gray-700"
+              htmlFor="last-name"
+            >
+              Last Name
+            </label>
+            <input
+              className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
+              id="last-name"
+              type="text"
+              placeholder="Enter your last name"
+              name="last_name"
             />
           </div>
           <div className="mb-4">
