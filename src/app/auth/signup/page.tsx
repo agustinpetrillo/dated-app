@@ -61,13 +61,13 @@ const SignUp = () => {
           <div className="mb-4">
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlFor="last-name"
+              htmlFor="last_name"
             >
               Last Name
             </label>
             <input
               className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
-              id="last-name"
+              id="last_name"
               type="text"
               placeholder="Enter your last name"
               name="last_name"
