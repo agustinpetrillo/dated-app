@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import Loader from "@/app/components/reutilizable/Loader";
+import Loader from "@/components/reutilizable/Loader";
 
 const Login = () => {
   const router = useRouter();
