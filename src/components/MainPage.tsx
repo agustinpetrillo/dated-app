@@ -1,5 +1,5 @@
 const MainPage = () => {
-  return <div>Welcome to date me</div>;
+  return <div>Date me</div>;
 };
 
 export default MainPage;
