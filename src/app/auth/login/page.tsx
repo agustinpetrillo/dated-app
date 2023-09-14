@@ -1,15 +1,18 @@
 "use client";
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import Loader from "@/app/components/reutilizable/Loader";
 
 const Login = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+    setLoading(true);
 
     try {
       const res = await fetch(
@@ -27,6 +30,8 @@ const Login = () => {
       );
       if (res?.ok) return router.push("/home");
     } catch (error) {}
+
+    setLoading(false);
   };
 
   return (
@@ -47,6 +52,7 @@ const Login = () => {
               type="text"
               placeholder="Enter your email"
               name="email"
+              required
             />
           </div>
           <div className="mb-4">
@@ -62,6 +68,7 @@ const Login = () => {
               type="password"
               placeholder="Enter your password"
               name="password"
+              required
             />
           </div>
           <div className="mb-4">
@@ -71,6 +78,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+      {loading && <Loader />}
     </div>
   );
 };
