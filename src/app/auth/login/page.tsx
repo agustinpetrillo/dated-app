@@ -17,25 +17,6 @@ const Login = () => {
     const formData = new FormData(e.currentTarget);
     setLoading(true);
 
-    // try {
-    //   const res = await fetch(
-    //     `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
-    //     {
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         email: formData.get("email"),
-    //         password: formData.get("password"),
-    //       }),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   if (res?.ok) return router.push("/home");
-    // } catch (error) {
-
-    // }
-
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
@@ -44,7 +25,7 @@ const Login = () => {
           password: formData.get("password"),
         }
       );
-      // if (res?.ok) return router.push("/home");
+      if (res?.status === 201) return router.push("/home");
     } catch (error) {
       if (error instanceof AxiosError) setError(error.response?.data.message);
     }
