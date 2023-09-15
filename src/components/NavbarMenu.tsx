@@ -10,7 +10,7 @@ const NavbarMenu = () => {
     <Navbar fluid className="fixed w-full">
       <Navbar.Brand href="/">
         <Image
-          alt="Flowbite React Logo"
+          alt="Date me logo"
           width={35}
           height={35}
           className="h-6 mr-3 sm:h-9"
