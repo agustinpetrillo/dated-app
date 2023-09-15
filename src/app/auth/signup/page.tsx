@@ -3,15 +3,18 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios, { AxiosError } from "axios";
+import Loader from "@/components/reutilizable/Loader";
 
 const SignUp = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+    setLoading(true);
 
     try {
       const res = await axios.post(
@@ -27,6 +30,8 @@ const SignUp = () => {
     } catch (error) {
       if (error instanceof AxiosError) setError(error.response?.data.message);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -102,6 +107,7 @@ const SignUp = () => {
           </div>
         </form>
       </div>
+      {loading && <Loader />}
     </div>
   );
 };
