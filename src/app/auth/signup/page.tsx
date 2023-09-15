@@ -30,7 +30,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen dark:bg-primary">
+    <div className="flex flex-col items-center justify-center min-h-screen dark:bg-primary">
       <p className="text-red-500">{error}</p>
       <div className="w-full max-w-md p-6 rounded-md shadow-md bg-slate-300">
         <h2 className="mb-4 text-2xl font-semibold text-center">Sign Up</h2>
