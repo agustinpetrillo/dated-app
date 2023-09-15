@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
+import axios from "axios";
 import logo from "../../public/logo.png";
 
 const NavbarMenu = () => {
