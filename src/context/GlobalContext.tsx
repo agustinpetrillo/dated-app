@@ -1,14 +1,21 @@
 "use client";
 
-import { createContext } from "react";
+import { createContext, useState } from "react";
+import { UserData } from "@/types";
 
-export const Utils = createContext({});
+export const Global = createContext({});
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const UtilsProvider = ({ children }: Props) => {
-  const value = {};
-  return <Utils.Provider value={value}>{children}</Utils.Provider>;
+export const GlobalProvider = ({ children }: Props) => {
+  const [userData, setUserData] = useState<UserData>({
+    email: "",
+    last_name: "",
+    name: "",
+  });
+
+  const value = { userData, setUserData };
+  return <Global.Provider value={value}>{children}</Global.Provider>;
 };

@@ -1,19 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
 import axios, { AxiosError } from "axios";
 import logo from "../../public/logo.png";
-import { UserData } from "@/types";
+import { GlobalContextType, UserData } from "@/types";
+import { Global } from "@/context/GlobalContext";
 
 const NavbarMenu = () => {
-  const [userData, setUserData] = useState<UserData>({
-    email: "",
-    last_name: "",
-    name: "",
-  });
+  const { userData, setUserData } = useContext(Global) as GlobalContextType;
 
   const getUserDataFromDatabase = async (userId: string) => {
     try {

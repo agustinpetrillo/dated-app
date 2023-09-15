@@ -2,6 +2,7 @@ import NavbarMenu from "@/components/NavbarMenu";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
+import { GlobalProvider } from "@/context/GlobalContext";
 
 const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
 
@@ -60,8 +61,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={robotoFlex.className}>
-        <NavbarMenu />
-        {children}
+        <GlobalProvider>
+          <NavbarMenu />
+          {children}
+        </GlobalProvider>
       </body>
     </html>
   );

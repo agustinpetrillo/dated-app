@@ -14,3 +14,8 @@ export interface UserData {
   name: string;
   last_name: string;
 }
+
+export interface GlobalContextType {
+  userData: UserData;
+  setUserData: (userData: userData) => void;
+}
