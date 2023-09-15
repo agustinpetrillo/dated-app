@@ -1,14 +1,42 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import logo from "../../public/logo.png";
+import { UserData } from "@/types";
 
 const NavbarMenu = () => {
+  const [userData, setUserData] = useState<UserData>({
+    email: "",
+    last_name: "",
+    name: "",
+  });
+
+  const getUserDataFromDatabase = async (userId: string) => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings?userId=${userId}`
+      );
+      setUserData({
+        name: res.data.name,
+        email: res.data.email,
+        last_name: res.data.last_name,
+      });
+    } catch (error) {
+      // if (error instanceof AxiosError) console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUserDataFromDatabase("65034429030f4e38cb5d928e");
+  }, []);
+
   return (
     <Navbar fluid className="fixed w-full">
-      <Navbar.Brand href="/">
+      <Navbar.Brand href="/home">
         <Image
           alt="Date me logo"
           width={35}
@@ -32,13 +60,17 @@ const NavbarMenu = () => {
           }
         >
           <Dropdown.Header>
-            <span className="block text-sm text-red-600">Javier Bonzon</span>
+            <span className="block text-sm text-red-600">
+              {userData.name} {userData.last_name}
+            </span>
             <span className="block text-sm font-medium truncate">
-              javier73@gmail.com
+              {userData.email}
             </span>
           </Dropdown.Header>
           <ul className="ml-4">
-            <li className="cursor-pointer">Settings</li>
+            <li className="cursor-pointer">
+              <Link href="/user/settings">Settings</Link>
+            </li>
             <Dropdown.Divider />
             <li className="cursor-pointer">Sign out</li>
           </ul>
@@ -46,7 +78,7 @@ const NavbarMenu = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/" className="transition-all duration-200">
+        <Navbar.Link href="/home" className="transition-all duration-200">
           Home
         </Navbar.Link>
         <Navbar.Link href="/" className="transition-all duration-200">
