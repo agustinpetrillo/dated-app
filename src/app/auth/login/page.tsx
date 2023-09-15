@@ -26,6 +26,8 @@ const Login = () => {
         }
       );
       if (res?.status === 201) return router.push("/home");
+      //save token in storage from user
+      window.localStorage.setItem("token", res.data.token);
     } catch (error) {
       if (error instanceof AxiosError) setError(error.response?.data.message);
     }
