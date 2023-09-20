@@ -14,6 +14,7 @@ export const GlobalProvider = ({ children }: Props) => {
     email: "",
     last_name: "",
     name: "",
+    login: false,
   });
 
   const value = { userData, setUserData };

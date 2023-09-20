@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
 import axios, { AxiosError } from "axios";
 import logo from "../../public/logo.png";
-import { GlobalContextType, UserData } from "@/types";
+import { GlobalContextType } from "@/types";
 import { Global } from "@/context/GlobalContext";
 
 const NavbarMenu = () => {
@@ -21,6 +21,7 @@ const NavbarMenu = () => {
         name: res.data.name,
         email: res.data.email,
         last_name: res.data.last_name,
+        login: true,
       });
     } catch (error) {
       // if (error instanceof AxiosError) console.log(error);
@@ -46,32 +47,46 @@ const NavbarMenu = () => {
         </span>
       </Navbar.Brand>
       <div className="flex text-black dark:text-white md:order-2">
-        <Dropdown
-          inline
-          label={
-            <Avatar
-              alt="User settings"
-              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-              rounded
-            />
-          }
-        >
-          <Dropdown.Header>
-            <span className="block text-sm text-red-600">
-              {userData.name} {userData.last_name}
-            </span>
-            <span className="block text-sm font-medium truncate">
-              {userData.email}
-            </span>
-          </Dropdown.Header>
-          <ul className="ml-4">
-            <li className="cursor-pointer">
-              <Link href="/user/settings">Settings</Link>
-            </li>
-            <Dropdown.Divider />
-            <li className="cursor-pointer">Sign out</li>
-          </ul>
-        </Dropdown>
+        {userData.login ? (
+          <Dropdown
+            inline
+            label={
+              <Avatar
+                alt="User settings"
+                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                rounded
+              />
+            }
+          >
+            <Dropdown.Header>
+              <span className="block text-sm text-red-600">
+                {userData.name} {userData.last_name}
+              </span>
+              <span className="block text-sm font-medium truncate">
+                {userData.email}
+              </span>
+            </Dropdown.Header>
+            <ul className="ml-4">
+              <li className="cursor-pointer">
+                <Link href="/user/settings">Settings</Link>
+              </li>
+              <Dropdown.Divider />
+              <li
+                className="cursor-pointer"
+                onClick={() => window.localStorage.setItem("token", "")}
+              >
+                <Link href="/auth/login">Log out</Link>
+              </li>
+            </ul>
+          </Dropdown>
+        ) : (
+          <Link
+            href="/auth/login"
+            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+          >
+            Login
+          </Link>
+        )}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
