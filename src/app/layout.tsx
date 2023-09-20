@@ -1,3 +1,5 @@
+import { getServerSession } from "next-auth";
+import SessionProvider from "./providers/SessionProvider";
 import NavbarMenu from "@/components/NavbarMenu";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -53,18 +55,21 @@ export const metadata: Metadata = {
   // ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
   return (
     <html lang="en">
       <body className={robotoFlex.className}>
-        <GlobalProvider>
-          <NavbarMenu />
-          {children}
-        </GlobalProvider>
+        <SessionProvider session={session}>
+          <GlobalProvider>
+            <NavbarMenu />
+            {children}
+          </GlobalProvider>
+        </SessionProvider>
       </body>
     </html>
   );

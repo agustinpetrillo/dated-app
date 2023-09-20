@@ -1,36 +1,33 @@
 "use client";
 
-import { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut, signIn, useSession } from "next-auth/react";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
-import axios, { AxiosError } from "axios";
+// import axios, { AxiosError } from "axios";
 import logo from "../../public/logo.png";
-import { GlobalContextType } from "@/types";
-import { Global } from "@/context/GlobalContext";
 
 const NavbarMenu = () => {
-  const { userData, setUserData } = useContext(Global) as GlobalContextType;
+  const { data: session, status } = useSession();
 
-  const getUserDataFromDatabase = async (userId: string) => {
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings?userId=${userId}`
-      );
-      setUserData({
-        name: res.data.name,
-        email: res.data.email,
-        last_name: res.data.last_name,
-        login: true,
-      });
-    } catch (error) {
-      // if (error instanceof AxiosError) console.log(error);
-    }
-  };
+  // const getUserDataFromDatabase = async (userId: string) => {
+  //   try {
+  //     const res = await axios.get(
+  //       `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings?userId=${userId}`
+  //     );
+  //     setUserData({
+  //       name: res.data.name,
+  //       email: res.data.email,
+  //       last_name: res.data.last_name,
+  //     });
+  //   } catch (error) {
+  //     // if (error instanceof AxiosError) console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getUserDataFromDatabase("65034429030f4e38cb5d928e");
-  }, []);
+  // useEffect(() => {
+  //   getUserDataFromDatabase("65034429030f4e38cb5d928e");
+  // }, []);
 
   return (
     <Navbar fluid className="fixed w-full">
@@ -47,7 +44,7 @@ const NavbarMenu = () => {
         </span>
       </Navbar.Brand>
       <div className="flex text-black dark:text-white md:order-2">
-        {userData.login ? (
+        {session ? (
           <Dropdown
             inline
             label={
@@ -60,10 +57,10 @@ const NavbarMenu = () => {
           >
             <Dropdown.Header>
               <span className="block text-sm text-red-600">
-                {userData.name} {userData.last_name}
+                {session?.user?.name}
               </span>
               <span className="block text-sm font-medium truncate">
-                {userData.email}
+                {session?.user?.email}
               </span>
             </Dropdown.Header>
             <ul className="ml-4">
@@ -71,25 +68,27 @@ const NavbarMenu = () => {
                 <Link href="/user/settings">Settings</Link>
               </li>
               <Dropdown.Divider />
-              <li
-                className="cursor-pointer"
-                onClick={() => window.localStorage.setItem("token", "")}
-              >
-                <Link href="/auth/login">Log out</Link>
+              <li className="cursor-pointer" onClick={() => signOut()}>
+                <Link href="/auth/login">Sign out</Link>
               </li>
             </ul>
           </Dropdown>
         ) : (
-          <Link
-            href="/auth/login"
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-          >
-            Login
-          </Link>
+          <div className="space-x-2">
+            <button
+              onClick={() => signIn()}
+              className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+            >
+              Login
+            </button>
+            <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
+              <Link href="/auth/signup">Create Account</Link>
+            </button>
+          </div>
         )}
         <Navbar.Toggle />
       </div>
-      <Navbar.Collapse>
+      {/* <Navbar.Collapse>
         <Navbar.Link href="/home" className="transition-all duration-200">
           Home
         </Navbar.Link>
@@ -102,7 +101,7 @@ const NavbarMenu = () => {
         <Navbar.Link href="/" className="transition-all duration-200">
           Contact
         </Navbar.Link>
-      </Navbar.Collapse>
+      </Navbar.Collapse> */}
     </Navbar>
   );
 };

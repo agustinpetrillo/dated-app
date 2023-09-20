@@ -13,7 +13,6 @@ export interface UserData {
   email: string;
   name: string;
   last_name: string;
-  login: boolean;
 }
 
 export interface GlobalContextType {

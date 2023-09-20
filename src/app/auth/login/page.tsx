@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 import Loader from "@/components/reutilizable/Loader";
 import axios, { AxiosError } from "axios";
 import BackgroundPhone from "@/components/reutilizable/BackgroundPhone";
@@ -11,26 +12,43 @@ const Login = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget);
+  //   setLoading(true);
+
+  //   try {
+  //     const res = await axios.post(
+  //       `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
+  //       {
+  //         email: formData.get("email"),
+  //         password: formData.get("password"),
+  //       }
+  //     );
+  //     if (res?.status === 201) return router.push("/home");
+  //     //save token in storage from user
+  //     window.localStorage.setItem("token", res.data.token);
+  //   } catch (error) {
+  //     if (error instanceof AxiosError) setError(error.response?.data.message);
+  //   }
+
+  //   setLoading(false);
+  // };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     setLoading(true);
 
-    try {
-      const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
-        {
-          email: formData.get("email"),
-          password: formData.get("password"),
-        }
-      );
-      if (res?.status === 201) return router.push("/home");
-      //save token in storage from user
-      window.localStorage.setItem("token", res.data.token);
-    } catch (error) {
-      if (error instanceof AxiosError) setError(error.response?.data.message);
-    }
+    await signIn("credentials", {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      redirect: false,
+    });
+
+    router.push("/home");
 
     setLoading(false);
   };
@@ -52,7 +70,7 @@ const Login = () => {
               <input
                 className="w-full px-3 py-2 leading-tight text-gray-700 border rounded-md focus:outline-none focus:shadow-outline"
                 id="email"
-                type="text"
+                type="email"
                 placeholder="Enter your email"
                 name="email"
                 required
