@@ -42,13 +42,16 @@ const Login = () => {
     const formData = new FormData(e.currentTarget);
     setLoading(true);
 
-    await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      redirect: false,
-    });
-
-    router.push("/home");
+    try {
+      const res = await signIn("credentials", {
+        email: formData.get("email"),
+        password: formData.get("password"),
+        redirect: false,
+      });
+      if (res?.ok) return router.push("/home");
+    } catch (error) {
+      if (error instanceof AxiosError) setError(error.response?.data.message);
+    }
 
     setLoading(false);
   };
