@@ -5,11 +5,11 @@ import BackgroundPhone from "./reutilizable/BackgroundPhone";
 import LikeOrNot from "./LikeOrNot";
 
 const MainPage = async () => {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
-  if (!session) {
-    redirect("/auth/login");
-  }
+  // if (!session) {
+  //   redirect("/auth/login");
+  // }
 
   return (
     <BackgroundPhone className="grid items-center justify-between w-full min-h-screen grid-cols-2 bg-primary">

@@ -27,36 +27,36 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
 
-        // const res = await axios.post(
-        //   `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
-        //   {
-        //     email: credentials?.email,
-        //     password: credentials?.password,
-        //   }
-        // );
-        // const user = await res.data;
-
-        // if (
-        //   credentials?.email === user.email &&
-        //   credentials?.password === user.password
-        // ) {
-        //   return user;
-        // } else {
-        //   return null;
-        // }
+        const res = await axios.post(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
+          {
+            email: credentials?.email,
+            password: credentials?.password,
+          }
+        );
+        const user = await res.data;
 
         if (
-          credentials?.email === "test@test.com" &&
-          credentials?.password === "test12345"
+          credentials?.email === user.email &&
+          credentials?.password === user.password
         ) {
-          return {
-            email: "test@test.com",
-            name: "petri",
-            last_name: "tester",
-          };
+          return user;
         } else {
           return null;
         }
+
+        // if (
+        //   credentials?.email === "test@test.com" &&
+        //   credentials?.password === "test12345"
+        // ) {
+        //   return {
+        //     email: "test@test.com",
+        //     name: "petri",
+        //     last_name: "tester",
+        //   };
+        // } else {
+        //   return null;
+        // }
       },
     }),
   ],

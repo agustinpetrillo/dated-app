@@ -12,30 +12,6 @@ const Login = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-
-  //   const formData = new FormData(e.currentTarget);
-  //   setLoading(true);
-
-  //   try {
-  //     const res = await axios.post(
-  //       `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
-  //       {
-  //         email: formData.get("email"),
-  //         password: formData.get("password"),
-  //       }
-  //     );
-  //     if (res?.status === 201) return router.push("/home");
-  //     //save token in storage from user
-  //     window.localStorage.setItem("token", res.data.token);
-  //   } catch (error) {
-  //     if (error instanceof AxiosError) setError(error.response?.data.message);
-  //   }
-
-  //   setLoading(false);
-  // };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -43,18 +19,42 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await signIn("credentials", {
-        email: formData.get("email"),
-        password: formData.get("password"),
-        redirect: false,
-      });
-      if (res?.ok) return router.push("/home");
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/auth/login`,
+        {
+          email: formData.get("email"),
+          password: formData.get("password"),
+        }
+      );
+      //save token in storage from user
+      window.localStorage.setItem("token", res.data.token);
+      if (res?.status === 201) return router.push("/home");
     } catch (error) {
       if (error instanceof AxiosError) setError(error.response?.data.message);
     }
 
     setLoading(false);
   };
+
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget);
+  //   setLoading(true);
+
+  //   try {
+  //     const res = await signIn("credentials", {
+  //       email: formData.get("email"),
+  //       password: formData.get("password"),
+  //       redirect: false,
+  //     });
+  //     if (res?.ok) return router.push("/home");
+  //   } catch (error) {
+  //     if (error instanceof AxiosError) setError(error.response?.data.message);
+  //   }
+
+  //   setLoading(false);
+  // };
 
   return (
     <BackgroundPhone>

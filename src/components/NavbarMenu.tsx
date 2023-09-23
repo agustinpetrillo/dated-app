@@ -4,30 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { signOut, signIn, useSession } from "next-auth/react";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
-// import axios, { AxiosError } from "axios";
 import logo from "../../public/logo.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+interface User {
+  name: string;
+  last_name: string;
+  email: string;
+}
 
 const NavbarMenu = () => {
   const { data: session, status } = useSession();
+  const [userData, setUserData] = useState<User>({
+    name: "",
+    last_name: "",
+    email: "",
+  });
 
-  // const getUserDataFromDatabase = async (userId: string) => {
-  //   try {
-  //     const res = await axios.get(
-  //       `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings?userId=${userId}`
-  //     );
-  //     setUserData({
-  //       name: res.data.name,
-  //       email: res.data.email,
-  //       last_name: res.data.last_name,
-  //     });
-  //   } catch (error) {
-  //     // if (error instanceof AxiosError) console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getUserDataFromDatabase("65034429030f4e38cb5d928e");
-  // }, []);
+  useEffect(() => {
+    const res = axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings/me`,
+      {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      }
+    );
+    res.then((data) => setUserData(data.data));
+  }, []);
 
   return (
     <Navbar fluid className="fixed w-full">
@@ -44,7 +49,7 @@ const NavbarMenu = () => {
         </span>
       </Navbar.Brand>
       <div className="flex text-black dark:text-white md:order-2">
-        {session ? (
+        {userData ? (
           <Dropdown
             inline
             label={
@@ -57,10 +62,12 @@ const NavbarMenu = () => {
           >
             <Dropdown.Header>
               <span className="block text-sm text-red-600">
-                {session?.user?.name}
+                {/* {session?.user?.name} */}
+                {userData.name} {userData.last_name}
               </span>
               <span className="block text-sm font-medium truncate">
-                {session?.user?.email}
+                {/* {session?.user?.email} */}
+                {userData.email}
               </span>
             </Dropdown.Header>
             <ul className="ml-4">
