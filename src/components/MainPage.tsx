@@ -1,15 +1,25 @@
+"use client";
+
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import BackgroundPhone from "./reutilizable/BackgroundPhone";
 import LikeOrNot from "./LikeOrNot";
+import { useContext } from "react";
+import { Global } from "@/context/GlobalContext";
+import { GlobalContextType } from "@/types";
 
-const MainPage = async () => {
+const MainPage = () => {
+  const { userData } = useContext(Global) as GlobalContextType;
   // const session = await getServerSession(authOptions);
 
   // if (!session) {
   //   redirect("/auth/login");
   // }
+
+  if (!userData) {
+    redirect("/auth/login");
+  }
 
   return (
     <BackgroundPhone className="grid items-center justify-between w-full min-h-screen grid-cols-2 bg-primary">

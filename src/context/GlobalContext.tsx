@@ -11,6 +11,7 @@ type Props = {
 
 export const GlobalProvider = ({ children }: Props) => {
   const [userData, setUserData] = useState<UserData>({
+    _id: "",
     email: "",
     last_name: "",
     name: "",

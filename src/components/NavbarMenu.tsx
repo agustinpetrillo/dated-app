@@ -61,7 +61,7 @@ const NavbarMenu = () => {
               </Dropdown.Header>
               <ul className="ml-4">
                 <li className="cursor-pointer">
-                  <Link href="/user/settings">Settings</Link>
+                  <Link href={`/user/settings/${userData._id}`}>Settings</Link>
                 </li>
                 <Dropdown.Divider />
                 <li
@@ -92,7 +92,7 @@ const NavbarMenu = () => {
             Home
           </Navbar.Link>
           <Navbar.Link
-            href="/user/settings"
+            href={`/user/settings/${userData._id}`}
             className="transition-all duration-200"
           >
             Settings
@@ -133,7 +133,7 @@ const NavbarMenu = () => {
               </Dropdown.Header>
               <ul className="ml-4">
                 <li className="cursor-pointer">
-                  <Link href="/user/settings">Settings</Link>
+                  <Link href={`/user/settings/${userData._id}`}>Settings</Link>
                 </li>
                 <Dropdown.Divider />
                 <li className="cursor-pointer" onClick={() => signOut()}>
@@ -161,7 +161,7 @@ const NavbarMenu = () => {
             Home
           </Navbar.Link>
           <Navbar.Link
-            href="/user/settings"
+            href={`/user/settings/${userData._id}`}
             className="transition-all duration-200"
           >
             Settings
