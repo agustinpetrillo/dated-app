@@ -13,7 +13,7 @@ export interface UserData {
   email: string;
   name: string;
   last_name: string;
-  image?: string;
+  avatar?: string;
   age?: number;
   description?: string;
   gender?: string;
