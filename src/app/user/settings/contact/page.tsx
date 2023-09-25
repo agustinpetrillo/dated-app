@@ -1,8 +1,8 @@
 const Contact = () => {
   return (
-    <section className="flex flex-col items-center justify-center text-white">
+    <section className="flex flex-col items-center justify-center p-10 text-white">
       <h1>Do you need help?</h1>
-      <form className="flex flex-col">
+      <form className="flex flex-col max-w-xs">
         <textarea
           name=""
           placeholder="What's your problem?"
