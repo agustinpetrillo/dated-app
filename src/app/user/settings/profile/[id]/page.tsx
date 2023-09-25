@@ -8,7 +8,7 @@ import { GlobalContextType } from "@/types";
 const UserProfile = () => {
   const { userData } = useContext(Global) as GlobalContextType;
   return (
-    <div className="flex flex-col justify-center min-h-screen text-white">
+    <section className="flex flex-col justify-center min-h-screen text-white">
       <h1 className="mb-5">Edit profile</h1>
       <form className="flex flex-col">
         <div className="flex flex-col items-center justify-center">
@@ -19,7 +19,7 @@ const UserProfile = () => {
             height={100}
             className="mb-2 rounded-full"
           />
-          <p className="p-2 text-sm rounded cursor-pointer hover:bg-gray-700">
+          <p className="p-2 text-sm transition-all duration-200 rounded cursor-pointer hover:bg-gray-700">
             Change photo
           </p>
         </div>
@@ -54,7 +54,7 @@ const UserProfile = () => {
           <option value="women">Women</option>
         </select>
       </form>
-    </div>
+    </section>
   );
 };
 
