@@ -18,23 +18,30 @@ const ChangePassword = () => {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full min-h-screen bg-black/70">
+    <div className="absolute top-0 left-0 flex flex-col items-center justify-center w-full min-h-screen text-white bg-black/70">
       <form
-        className="flex flex-col p-6 text-white bg-black rounded-md"
+        className="flex flex-col p-6 bg-black rounded-md"
         ref={clickOutsideToCloseRef}
       >
-        <label htmlFor="new_password">New password</label>
-        <input type="password" placeholder="New password" className="" />
-        <label htmlFor="write_again_the_password">
-          Write again the password
-        </label>
+        <h1 className="text-xl mb-7">Change password</h1>
+        <label htmlFor="old_password">Old password</label>
         <input
           type="password"
-          placeholder="Write again the password"
-          className=""
+          placeholder="Old password"
+          className="p-2 mb-2 rounded-sm"
         />
-        <label htmlFor="actual_password">Actual password</label>
-        <input type="password" placeholder="Actual password" className="" />
+        <label htmlFor="new_password">New password</label>
+        <input
+          type="password"
+          placeholder="New password"
+          className="p-2 mb-2 rounded-sm"
+        />
+        <label htmlFor="again_new_password">New password</label>
+        <input
+          type="password"
+          placeholder="New password"
+          className="p-2 mb-2 rounded-sm"
+        />
         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
           Send
         </button>
