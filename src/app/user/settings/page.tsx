@@ -1,66 +1,74 @@
 "use client";
 
-import SidebarSettings from "@/components/SidebarSettings";
-import Container from "@/components/reutilizable/Container";
+import Image from "next/image";
 import axios, { AxiosError } from "axios";
 
-const Settings = ({ params: { id } }: { params: { id: string } }) => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = new FormData(e.currentTarget);
-
-    try {
-      const res = await axios.put(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings/modifyEmail`,
-        {
-          email: form.get("email"),
-          _id: id,
-        }
-      );
-    } catch (error) {
-      if (error instanceof AxiosError)
-        console.log(error.response?.data.message);
-    }
-  };
-
+const Settings = () => {
   return (
-    <div className="">
-      {/* <form
-        className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-bold text-gray-700"
-            htmlFor="email"
-          >
-            New Email
-          </label>
-          <input type="email" placeholder="New email" name="email" id="email" />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block mb-2 text-sm font-bold text-gray-700"
-            htmlFor="password"
-          >
-            New Password
-          </label>
-          <input
-            className="w-full px-3 py-2 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            name="password"
-            placeholder="New password"
+    <section className="flex flex-col justify-center min-h-screen text-white">
+      <h1 className="mb-5">Edit profile</h1>
+      <form className="flex flex-col">
+        <div className="flex flex-col items-center justify-center">
+          <Image
+            src="/imgs/test.jpg"
+            alt=""
+            width={100}
+            height={100}
+            className="mb-2 rounded-full"
           />
+          <p className="p-2 text-sm transition-all duration-200 rounded cursor-pointer hover:bg-gray-700">
+            Change photo
+          </p>
         </div>
-        <div className="flex items-center justify-between">
-          <button className="px-4 py-2 font-bold text-white bg-indigo-500 rounded hover:bg-indigo-700 focus:outline-none focus:shadow-outline">
-            Save
-          </button>
-        </div>
-      </form> */}
-    </div>
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          className="p-1 text-black rounded-sm outline-none"
+        />
+        <label htmlFor="last_name">Last name</label>
+        <input
+          type="text"
+          name="last_name"
+          placeholder="Last name"
+          className="p-1 text-black rounded-sm outline-none"
+        />
+        <label htmlFor="bio">Bio</label>
+        <textarea
+          placeholder="Bio"
+          name="bio"
+          className="h-32 p-1 text-black rounded-sm outline-none resize-none"
+        />
+        <label htmlFor="gender">Gender</label>
+        <select
+          name="gender"
+          id="gender"
+          defaultValue="gender"
+          placeholder="Gender"
+          className="p-1 text-gray-500 rounded-sm outline-none"
+        >
+          <option value="gender">Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <label htmlFor="sex_preference">Sex preference</label>
+        <select
+          name="sex_preference"
+          id="sex_preference"
+          defaultValue="sex_preference"
+          placeholder="Sex preference"
+          className="p-1 text-gray-500 rounded-sm outline-none"
+        >
+          <option value="sex_preference">Select your sex preference</option>
+          <option value="men">Men</option>
+          <option value="women">Women</option>
+        </select>
+        <button className="px-4 py-2 font-bold text-white transition-all duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
+          Send
+        </button>
+      </form>
+    </section>
   );
 };
 

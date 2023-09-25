@@ -62,7 +62,7 @@ const NavbarMenu = () => {
               </div>
               <ul className="ml-4">
                 <li className="cursor-pointer">
-                  <Link href={`/user/settings/profile/${userData._id}`}>
+                  <Link href='/user/settings'>
                     Settings
                   </Link>
                 </li>
@@ -96,7 +96,7 @@ const NavbarMenu = () => {
             Home
           </Link>
           <Link
-            href={`/user/settings/profile/${userData._id}`}
+            href="/user/settings"
             className="transition-all duration-200 hover:text-gray-400"
           >
             Settings
@@ -167,7 +167,7 @@ const NavbarMenu = () => {
   //           Home
   //         </Link>
   //         <Link
-  //           href={`/user/settings/profile/${userData._id}`}
+  //           href='/user/settings'
   //           className="transition-all duration-200"
   //         >
   //           Settings
