@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
@@ -14,6 +14,16 @@ const NavbarMenu = () => {
     Global
   ) as GlobalContextType;
   const { data: session, status } = useSession();
+  const [clicked, setClicked] = useState<boolean>(false);
+  const clickOutsideToCloseRef = useRef<HTMLDivElement | HTMLImageElement>(
+    null
+  );
+
+  const clickedOutside = (e: MouseEvent) => {
+    if (!clickOutsideToCloseRef.current?.contains(e.target as Node)) {
+      setClicked(false);
+    }
+  };
 
   useEffect(() => {
     const res = axios.get(
@@ -27,9 +37,14 @@ const NavbarMenu = () => {
     res.then((data) => setUserData(data.data));
   }, []);
 
+  useEffect(() => {
+    document.addEventListener("click", clickedOutside);
+    return () => document.removeEventListener("click", clickedOutside);
+  }, []);
+
   if (!loggingProvider) {
     return (
-      <nav className="fixed flex items-center justify-between w-full py-4 px-7">
+      <nav className="fixed flex items-center justify-between w-full py-3 px-7">
         <Link href="/home" className="flex">
           <Image
             alt="Date me logo"
@@ -44,35 +59,46 @@ const NavbarMenu = () => {
         </Link>
         <div className="flex text-black dark:text-white md:order-2">
           {userData ? (
-            <div>
+            <div className="relative" ref={clickOutsideToCloseRef}>
               <Image
                 alt="User settings"
                 src="/imgs/test.jpg"
                 width={35}
                 height={35}
-                className="rounded-full"
+                className="rounded-full cursor-pointer"
+                onClick={() => setClicked(!clicked)}
               />
-              {/* <div>
-                <span className="block text-sm text-red-600">
-                  {userData.name} {userData.last_name}
-                </span>
-                <span className="block text-sm font-medium truncate">
-                  {userData.email}
-                </span>
-              </div>
-              <ul className="ml-4">
-                <li className="cursor-pointer">
-                  <Link href='/user/settings'>
-                    Settings
-                  </Link>
-                </li>
-                <li
-                  className="cursor-pointer"
-                  onClick={() => window.localStorage.setItem("token", "")}
+              {clicked && (
+                <div
+                  className={`absolute right-0 flex flex-col p-4 mt-1 bg-gray-700 rounded-md ${
+                    clicked ? "popup-open" : "popup-close"
+                  }`}
                 >
-                  <Link href="/auth/login">Sign out</Link>
-                </li>
-              </ul> */}
+                  <span className="block text-sm text-red-600">
+                    {userData.name} {userData.last_name}
+                  </span>
+                  <span className="block mb-2 text-sm font-medium truncate">
+                    {userData.email}
+                  </span>
+                  <ul>
+                    <li
+                      className="p-2 transition-all duration-200 rounded-sm cursor-pointer hover:bg-gray-600"
+                      onClick={() => setClicked(!clicked)}
+                    >
+                      <Link href="/user/settings">Settings</Link>
+                    </li>
+                    <li
+                      className="p-2 transition-all duration-200 rounded-sm cursor-pointer hover:bg-gray-600"
+                      onClick={() => {
+                        // window.localStorage.setItem("token", "");
+                        setClicked(!clicked);
+                      }}
+                    >
+                      <Link href="/auth/login">Sign out</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           ) : (
             <div className="space-x-2">
