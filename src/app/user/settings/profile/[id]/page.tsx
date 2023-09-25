@@ -1,11 +1,15 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
+import { GlobalContextType, PopUps } from "@/types";
+import ChangeEmail from "@/components/ChangeEmail";
+import ChangePassword from "@/components/ChangePassword";
 
 const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
-  const { userData } = useContext(Global) as GlobalContextType;
+  const { userData, openPopUp, setOpenPopUp } = useContext(
+    Global
+  ) as GlobalContextType;
 
   return (
     <section className="flex flex-col justify-center min-h-screen text-white">
@@ -25,24 +29,31 @@ const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
           placeholder={userData.last_name}
           className="p-1 text-black rounded-sm outline-none"
         />
-        <label htmlFor="new_email">New email</label>
-        <input
-          name="new_email"
-          id="new_email"
-          placeholder="New email"
-          className="p-1 text-gray-500 rounded-sm outline-none"
-        />
-        <label htmlFor="new_password">New password</label>
-        <input
-          name="new_password"
-          id="new_password"
-          placeholder="New password"
-          className="p-1 text-gray-500 rounded-sm outline-none"
-        />
-        <button className="px-4 py-2 font-bold text-white transition-all duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
-          Send
-        </button>
       </form>
+      <button
+        className="px-4 py-2 text-white transition-all duration-200 bg-red-500 rounded-md hover:bg-red-700 focus:outline-none focus:shadow-outline"
+        onClick={() =>
+          setOpenPopUp((prevState: PopUps) => ({ ...prevState, email: true }))
+        }
+      >
+        Change email
+      </button>
+      <button
+        className="px-4 py-2 text-white transition-all duration-200 bg-red-500 rounded-md hover:bg-red-700 focus:outline-none focus:shadow-outline"
+        onClick={() =>
+          setOpenPopUp((prevState: PopUps) => ({
+            ...prevState,
+            password: true,
+          }))
+        }
+      >
+        Change password
+      </button>
+      <button className="px-4 py-2 font-bold text-white transition-all duration-200 bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
+        Send
+      </button>
+      {openPopUp.email && <ChangeEmail />}
+      {openPopUp.password && <ChangePassword />}
     </section>
   );
 };

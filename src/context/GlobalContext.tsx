@@ -16,9 +16,19 @@ export const GlobalProvider = ({ children }: Props) => {
     last_name: "",
     name: "",
   });
-
   const [loggingProvider, setLoggingProvider] = useState<boolean>(false);
+  const [openPopUp, setOpenPopUp] = useState({
+    email: false,
+    password: false,
+  });
 
-  const value = { userData, setUserData, loggingProvider, setLoggingProvider };
+  const value = {
+    userData,
+    setUserData,
+    loggingProvider,
+    setLoggingProvider,
+    openPopUp,
+    setOpenPopUp,
+  };
   return <Global.Provider value={value}>{children}</Global.Provider>;
 };

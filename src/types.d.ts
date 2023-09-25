@@ -21,9 +21,16 @@ export interface UserData {
   sex_preference?: string;
 }
 
+interface PopUps {
+  email: boolean;
+  password: boolean;
+}
+
 export interface GlobalContextType {
   userData: UserData;
   setUserData: (userData: userData) => void;
   loggingProvider: boolean;
   setLoggingProvider: (loggingProvider: boolean) => void;
+  openPopUp: PopUps;
+  setOpenPopUp: (openPopUp: object) => void;
 }
