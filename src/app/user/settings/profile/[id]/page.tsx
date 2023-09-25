@@ -24,18 +24,32 @@ const UserProfile = () => {
           </p>
         </div>
         <label htmlFor="name">Name</label>
-        <input type="text" placeholder="Name" />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          className="p-1 text-black rounded-sm outline-none"
+        />
         <label htmlFor="last_name">Last name</label>
-        <input type="text" placeholder="Last name" />
+        <input
+          type="text"
+          name="last_name"
+          placeholder="Last name"
+          className="p-1 text-black rounded-sm outline-none"
+        />
         <label htmlFor="bio">Bio</label>
-        <input type="text" placeholder="Bio" className="h-32" />
+        <textarea
+          placeholder="Bio"
+          name="bio"
+          className="h-32 p-1 text-black rounded-sm outline-none resize-none"
+        />
         <label htmlFor="gender">Gender</label>
         <select
           name="gender"
           id="gender"
           defaultValue="gender"
           placeholder="Gender"
-          className="text-gray-500"
+          className="p-1 text-gray-500 rounded-sm outline-none"
         >
           <option value="gender">Select your gender</option>
           <option value="male">Male</option>
@@ -47,7 +61,7 @@ const UserProfile = () => {
           id="sex_preference"
           defaultValue="sex_preference"
           placeholder="Sex preference"
-          className="text-gray-500"
+          className="p-1 text-gray-500 rounded-sm outline-none"
         >
           <option value="sex_preference">Select your sex preference</option>
           <option value="men">Men</option>
