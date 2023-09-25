@@ -1,12 +1,12 @@
 "use client";
 
+import { useContext, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import axios from "axios";
 import { signOut, signIn, useSession } from "next-auth/react";
 import { Dropdown, Navbar, Avatar } from "flowbite-react";
 import logo from "../../public/logo.png";
-import { useContext, useEffect } from "react";
-import axios from "axios";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 
@@ -61,7 +61,9 @@ const NavbarMenu = () => {
               </Dropdown.Header>
               <ul className="ml-4">
                 <li className="cursor-pointer">
-                  <Link href={`/user/settings/${userData._id}`}>Settings</Link>
+                  <Link href={`/user/settings/profile/${userData._id}`}>
+                    Settings
+                  </Link>
                 </li>
                 <Dropdown.Divider />
                 <li
@@ -92,7 +94,7 @@ const NavbarMenu = () => {
             Home
           </Navbar.Link>
           <Navbar.Link
-            href={`/user/settings/${userData._id}`}
+            href={`/user/settings/profile/${userData._id}`}
             className="transition-all duration-200"
           >
             Settings
@@ -133,7 +135,9 @@ const NavbarMenu = () => {
               </Dropdown.Header>
               <ul className="ml-4">
                 <li className="cursor-pointer">
-                  <Link href={`/user/settings/${userData._id}`}>Settings</Link>
+                  <Link href={`/user/settings/profile/${userData._id}`}>
+                    Settings
+                  </Link>
                 </li>
                 <Dropdown.Divider />
                 <li className="cursor-pointer" onClick={() => signOut()}>
@@ -161,7 +165,7 @@ const NavbarMenu = () => {
             Home
           </Navbar.Link>
           <Navbar.Link
-            href={`/user/settings/${userData._id}`}
+            href={`/user/settings/profile/${userData._id}`}
             className="transition-all duration-200"
           >
             Settings

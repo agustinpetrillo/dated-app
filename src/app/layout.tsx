@@ -63,7 +63,7 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={robotoFlex.className}>
+      <body className={`${robotoFlex.className} bg-primary`}>
         <SessionProvider session={session}>
           <GlobalProvider>
             <NavbarMenu />

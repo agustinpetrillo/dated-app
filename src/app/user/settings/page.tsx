@@ -1,5 +1,7 @@
 "use client";
 
+import SidebarSettings from "@/components/SidebarSettings";
+import Container from "@/components/reutilizable/Container";
 import axios, { AxiosError } from "axios";
 
 const Settings = ({ params: { id } }: { params: { id: string } }) => {
@@ -23,8 +25,8 @@ const Settings = ({ params: { id } }: { params: { id: string } }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <form
+    <div className="">
+      {/* <form
         className="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-md"
         onSubmit={(e) => handleSubmit(e)}
       >
@@ -57,7 +59,7 @@ const Settings = ({ params: { id } }: { params: { id: string } }) => {
             Save
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };
