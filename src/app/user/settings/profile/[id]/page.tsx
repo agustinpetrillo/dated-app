@@ -20,14 +20,14 @@ const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
           type="text"
           name="name"
           placeholder={userData.name}
-          className="p-1 mb-2 text-black rounded-sm outline-none"
+          className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
         />
         <label htmlFor="last_name">Last name</label>
         <input
           type="text"
           name="last_name"
           placeholder={userData.last_name}
-          className="p-1 mb-2 text-black rounded-sm outline-none"
+          className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
         />
       </form>
       <div className="flex flex-col max-w-xs">

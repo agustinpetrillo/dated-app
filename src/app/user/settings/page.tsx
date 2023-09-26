@@ -27,20 +27,20 @@ const Settings = () => {
           type="text"
           name="name"
           placeholder="Name"
-          className="p-1 mb-2 text-black rounded-sm outline-none"
+          className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
         />
         <label htmlFor="last_name">Last name</label>
         <input
           type="text"
           name="last_name"
           placeholder="Last name"
-          className="p-1 mb-2 text-black rounded-sm outline-none"
+          className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
         />
         <label htmlFor="bio">Bio</label>
         <textarea
           placeholder="Bio"
           name="bio"
-          className="h-32 p-1 mb-2 text-black rounded-sm outline-none resize-none"
+          className="h-32 p-1 mb-2 text-black border rounded-sm outline-none resize-none focus:border-main-color"
         />
         <label htmlFor="gender">Gender</label>
         <select
@@ -48,7 +48,7 @@ const Settings = () => {
           id="gender"
           defaultValue="gender"
           placeholder="Gender"
-          className="p-1 mb-2 text-gray-500 rounded-sm outline-none"
+          className="p-1 mb-2 text-gray-500 border rounded-sm outline-none focus:border-main-color"
         >
           <option value="gender">Select your gender</option>
           <option value="male">Male</option>
@@ -60,7 +60,7 @@ const Settings = () => {
           id="sex_preference"
           defaultValue="sex_preference"
           placeholder="Sex preference"
-          className="p-1 mb-2 text-gray-500 rounded-sm outline-none"
+          className="p-1 mb-2 text-gray-500 border rounded-sm outline-none focus:border-main-color"
         >
           <option value="sex_preference">Select your sex preference</option>
           <option value="men">Men</option>
