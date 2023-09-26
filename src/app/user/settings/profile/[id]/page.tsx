@@ -18,6 +18,7 @@ const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
         <label htmlFor="name">Name</label>
         <input
           type="text"
+          id="name"
           name="name"
           placeholder={userData.name}
           className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
@@ -25,6 +26,7 @@ const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
         <label htmlFor="last_name">Last name</label>
         <input
           type="text"
+          id="last_name"
           name="last_name"
           placeholder={userData.last_name}
           className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"

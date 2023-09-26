@@ -16,15 +16,20 @@ const Settings = () => {
             height={100}
             className="mb-2 rounded-full"
           />
-          <p className="p-2 text-sm transition-all duration-200 rounded cursor-pointer hover:bg-gray-700">
+          <label
+            htmlFor="change_photo"
+            className="p-2 text-sm transition-all duration-200 rounded cursor-pointer hover:bg-gray-700"
+          >
             Change photo
-          </p>
+          </label>
+          <input type="file" className="hidden" id="change_photo" />
         </div>
       </div>
       <form className="flex flex-col max-w-xs">
         <label htmlFor="name">Name</label>
         <input
           type="text"
+          id="name"
           name="name"
           placeholder="Name"
           className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
@@ -32,6 +37,7 @@ const Settings = () => {
         <label htmlFor="last_name">Last name</label>
         <input
           type="text"
+          id="last_name"
           name="last_name"
           placeholder="Last name"
           className="p-1 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
@@ -39,6 +45,7 @@ const Settings = () => {
         <label htmlFor="bio">Bio</label>
         <textarea
           placeholder="Bio"
+          id="bio"
           name="bio"
           className="h-32 p-1 mb-2 text-black border rounded-sm outline-none resize-none focus:border-main-color"
         />
