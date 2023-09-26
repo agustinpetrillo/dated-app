@@ -2,15 +2,35 @@
 
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
+import { useState } from "react";
 
 const Settings = () => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedImageSrc, setSelectedImageSrc] = useState<string>("");
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files![0];
+
+    if (selectedImageSrc) {
+      URL.revokeObjectURL(selectedImageSrc);
+    }
+    setSelectedFile(file || null);
+    if (file) {
+      setSelectedImageSrc(URL.createObjectURL(file));
+    }
+  };
+
+  const handleChangeProfileImage = () => {
+    return;
+  };
+
   return (
     <section className="flex flex-col justify-center w-full min-h-screen p-10 text-white">
       <div className="flex flex-col max-w-xs">
         <h1 className="mb-5">Edit profile</h1>
         <div className="flex flex-col items-center justify-center">
           <Image
-            src="/imgs/test.jpg"
+            src={selectedImageSrc}
             alt=""
             width={100}
             height={100}
@@ -19,10 +39,16 @@ const Settings = () => {
           <label
             htmlFor="change_photo"
             className="p-2 text-sm transition-all duration-200 rounded cursor-pointer hover:bg-gray-700"
+            onClick={() => handleChangeProfileImage()}
           >
             Change photo
           </label>
-          <input type="file" className="hidden" id="change_photo" />
+          <input
+            type="file"
+            className="hidden"
+            id="change_photo"
+            onChange={(e) => handleFileChange(e)}
+          />
         </div>
       </div>
       <form className="flex flex-col max-w-xs">
