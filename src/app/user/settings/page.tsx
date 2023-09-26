@@ -52,7 +52,6 @@ const Settings = () => {
         <label htmlFor="gender">Gender</label>
         <select
           name="gender"
-          id="gender"
           defaultValue="gender"
           placeholder="Gender"
           className="p-1 mb-2 text-gray-500 border rounded-sm outline-none focus:border-main-color"
@@ -64,7 +63,6 @@ const Settings = () => {
         <label htmlFor="sex_preference">Sex preference</label>
         <select
           name="sex_preference"
-          id="sex_preference"
           defaultValue="sex_preference"
           placeholder="Sex preference"
           className="p-1 mb-2 text-gray-500 border rounded-sm outline-none focus:border-main-color"
