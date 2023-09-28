@@ -3,6 +3,7 @@
 import { useContext, useState } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType, PopUps } from "@/types";
+import axios, { AxiosError } from "axios";
 import ChangeEmail from "@/components/ChangeEmail";
 import ChangePassword from "@/components/ChangePassword";
 
@@ -14,6 +15,21 @@ export default function UserProfile({
   const { userData, openPopUp, setOpenPopUp } = useContext(
     Global
   ) as GlobalContextType;
+  const [error, setError] = useState<string>("");
+
+  // const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+
+  //   const formData = new FormData(e.currentTarget);
+
+  //   try {
+  //     const res = axios.put(
+  //       `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/profile/settings/`
+  //     );
+  //   } catch (error) {
+  //     if (error instanceof AxiosError) setError(error.response?.data.message);
+  //   }
+  // };
 
   return (
     <section className="flex flex-col w-full min-h-0 px-10 text-white">

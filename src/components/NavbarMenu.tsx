@@ -74,7 +74,7 @@ export default function NavbarMenu() {
                     clicked ? "popup-open" : "popup-close"
                   }`}
                 >
-                  <span className="block text-sm text-red-600">
+                  <span className="block text-sm text-red-600 capitalize">
                     {userData.name} {userData.last_name}
                   </span>
                   <span className="block mb-2 text-sm font-medium truncate">

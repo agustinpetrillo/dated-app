@@ -8,6 +8,7 @@ import LikeOrNot from "./LikeOrNot";
 import { useContext } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
+import Matches from "./Matches";
 
 export default function MainPage() {
   const { userData } = useContext(Global) as GlobalContextType;
@@ -23,9 +24,7 @@ export default function MainPage() {
 
   return (
     <BackgroundPhone className="grid items-center justify-between w-full min-h-0 grid-cols-2 bg-primary p-7">
-      <div className="p-4 m-auto bg-red-700 rounded-lg">
-        <h1>Matches</h1>
-      </div>
+      <Matches />
       <LikeOrNot />
     </BackgroundPhone>
   );
