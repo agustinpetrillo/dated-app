@@ -127,22 +127,6 @@ export default function Chat() {
         </div>
       </div>
       <hr />
-      <style>
-        {`
-          /* Estilos para la barra de desplazamiento */
-          ::-webkit-scrollbar {
-            width: 8px; /* Ancho de la barra de desplazamiento */
-          }
-
-          ::-webkit-scrollbar-thumb {
-            background-color: #999; /* Color del fondo del "pulgar" de la barra de desplazamiento */
-          }
-
-          ::-webkit-scrollbar-thumb:hover {
-            background-color: #777; /* Cambia el color del "pulgar" al pasar el cursor sobre él */
-          }
-        `}
-      </style>
     </section>
   );
 }
