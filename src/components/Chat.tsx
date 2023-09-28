@@ -6,7 +6,7 @@ import { GlobalContextType } from "@/types";
 export default function Chat() {
   const { userData } = useContext(Global) as GlobalContextType;
   return (
-    <section className="flex flex-col overflow-y-auto bg-gray-100 max-h-96">
+    <section className="flex flex-col overflow-y-auto bg-gray-100">
       <h5 className="p-4">Messages</h5>
       <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
         <Image
