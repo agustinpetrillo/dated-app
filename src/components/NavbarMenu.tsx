@@ -80,7 +80,7 @@ export default function NavbarMenu() {
                   <span className="block mb-2 text-sm font-medium truncate">
                     {userData.email}
                   </span>
-                  <ul>
+                  <ul className="whitespace-nowrap">
                     <li
                       className="p-2 transition-all duration-200 rounded-sm cursor-pointer hover:bg-gray-600"
                       onClick={() => setClicked(!clicked)}

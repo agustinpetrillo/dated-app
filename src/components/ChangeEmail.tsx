@@ -24,21 +24,25 @@ export default function ChangeEmail() {
       }`}
     >
       <form
-        className="flex flex-col p-10 rounded-md bg-primary"
+        className="flex flex-col p-10 text-white rounded-md bg-primary"
         ref={clickOutsideToCloseRef}
       >
         <h1 className="text-xl text-center mb-7">Change email</h1>
-        <label htmlFor="new_password">New email</label>
+        <label htmlFor="new_email">New email</label>
         <input
           type="email"
           placeholder="New email"
-          className="p-2 mb-2 rounded-sm outline-none"
+          id="new_email"
+          name="new_email"
+          className="p-2 mb-2 text-black border rounded-sm outline-none focus:border-main-color"
         />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           placeholder="Password"
-          className="p-2 mb-5 rounded-sm outline-none"
+          id="password"
+          name="password"
+          className="p-2 mb-5 text-black border rounded-sm outline-none focus:border-main-color"
         />
         <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
           Send
