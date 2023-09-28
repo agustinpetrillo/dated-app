@@ -9,7 +9,7 @@ import logo from "../../public/logo.png";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 
-const NavbarMenu = () => {
+export default function NavbarMenu() {
   const { userData, setUserData, loggingProvider } = useContext(
     Global
   ) as GlobalContextType;
@@ -202,6 +202,4 @@ const NavbarMenu = () => {
   //     </nav>
   //   );
   // }
-};
-
-export default NavbarMenu;
+}

@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType, PopUps } from "@/types";
 
-const ChangePassword = () => {
+export default function ChangePassword() {
   const { openPopUp, setOpenPopUp } = useContext(Global) as GlobalContextType;
   const clickOutsideToCloseRef = useRef<HTMLFormElement>(null);
 
@@ -52,6 +52,4 @@ const ChangePassword = () => {
       </form>
     </div>
   );
-};
-
-export default ChangePassword;
+}

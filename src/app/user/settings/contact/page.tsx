@@ -1,4 +1,4 @@
-const Contact = () => {
+export default function Contact() {
   return (
     <section className="flex flex-col px-10 text-white">
       <h1 className="mb-5 text-xl font-bold">Do you need help?</h1>
@@ -15,6 +15,4 @@ const Contact = () => {
       </form>
     </section>
   );
-};
-
-export default Contact;
+}

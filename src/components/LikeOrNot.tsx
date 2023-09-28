@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const LikeOrNot = () => {
+export default function LikeOrNot() {
   return (
     <div className="p-4 m-auto bg-orange-700 rounded-lg">
       <div className="flex gap-2">
@@ -21,6 +21,4 @@ const LikeOrNot = () => {
       </div>
     </div>
   );
-};
-
-export default LikeOrNot;
+}

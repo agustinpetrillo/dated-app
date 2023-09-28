@@ -6,12 +6,15 @@ interface Props {
   ref?: React.LegacyRef<HTMLDivElement>;
 }
 
-const BackgroundPhone = ({ children, className, id, ref }: Props) => {
+export default function BackgroundPhone({
+  children,
+  className,
+  id,
+  ref,
+}: Props) {
   return (
     <div ref={ref} className={`${className}`} id={id}>
       {children}
     </div>
   );
-};
-
-export default BackgroundPhone;
+}

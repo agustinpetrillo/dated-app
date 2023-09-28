@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import axios, { AxiosError } from "axios";
 import Loader from "@/components/reutilizable/Loader";
 
-const SignUp = () => {
+export default function SignUp() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -110,6 +110,4 @@ const SignUp = () => {
       {loading && <Loader />}
     </div>
   );
-};
-
-export default SignUp;
+}

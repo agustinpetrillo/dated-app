@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 
-const MainPage = () => {
+export default function MainPage() {
   const { userData } = useContext(Global) as GlobalContextType;
   // const session = await getServerSession(authOptions);
 
@@ -29,6 +29,4 @@ const MainPage = () => {
       <LikeOrNot />
     </BackgroundPhone>
   );
-};
-
-export default MainPage;
+}

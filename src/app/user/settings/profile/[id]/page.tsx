@@ -6,7 +6,11 @@ import { GlobalContextType, PopUps } from "@/types";
 import ChangeEmail from "@/components/ChangeEmail";
 import ChangePassword from "@/components/ChangePassword";
 
-const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
+export default function UserProfile({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   const { userData, openPopUp, setOpenPopUp } = useContext(
     Global
   ) as GlobalContextType;
@@ -60,6 +64,4 @@ const UserProfile = ({ params: { id } }: { params: { id: string } }) => {
       {openPopUp.password && <ChangePassword />}
     </section>
   );
-};
-
-export default UserProfile;
+}

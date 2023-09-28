@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType, PopUps } from "@/types";
 
-const ChangeEmail = () => {
+export default function ChangeEmail() {
   const { openPopUp, setOpenPopUp } = useContext(Global) as GlobalContextType;
   const clickOutsideToCloseRef = useRef<HTMLFormElement>(null);
 
@@ -46,6 +46,4 @@ const ChangeEmail = () => {
       </form>
     </div>
   );
-};
-
-export default ChangeEmail;
+}

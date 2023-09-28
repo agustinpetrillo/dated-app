@@ -4,7 +4,7 @@ import { GlobalContextType } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const SidebarSettings = () => {
+export default function SidebarSettings() {
   const { userData } = useContext(Global) as GlobalContextType;
   const pathname = usePathname();
 
@@ -48,6 +48,4 @@ const SidebarSettings = () => {
       </div>
     </nav>
   );
-};
-
-export default SidebarSettings;
+}

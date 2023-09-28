@@ -1,7 +1,5 @@
 import MainPage from "@/components/MainPage";
 
-const HomePage = () => {
+export default function HomePage() {
   return <MainPage />;
-};
-
-export default HomePage;
+}

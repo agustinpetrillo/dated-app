@@ -7,7 +7,7 @@ import Loader from "@/components/reutilizable/Loader";
 import axios, { AxiosError } from "axios";
 import BackgroundPhone from "@/components/reutilizable/BackgroundPhone";
 
-const Login = () => {
+export default function Login() {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -106,6 +106,4 @@ const Login = () => {
       </div>
     </BackgroundPhone>
   );
-};
-
-export default Login;
+}

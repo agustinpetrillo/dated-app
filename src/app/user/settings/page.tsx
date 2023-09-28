@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios, { AxiosError } from "axios";
 import { useState } from "react";
 
-const Settings = () => {
+export default function Settings() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedImageSrc, setSelectedImageSrc] = useState<string>("");
 
@@ -103,6 +103,4 @@ const Settings = () => {
       </form>
     </section>
   );
-};
-
-export default Settings;
+}

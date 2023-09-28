@@ -5,7 +5,7 @@ type Props = {
   ref?: React.LegacyRef<HTMLDivElement>;
 };
 
-const Container = ({ children, className, style, ref }: Props) => {
+export default function Container({ children, className, style, ref }: Props) {
   return (
     <>
       <div
@@ -17,6 +17,4 @@ const Container = ({ children, className, style, ref }: Props) => {
       </div>
     </>
   );
-};
-
-export default Container;
+}

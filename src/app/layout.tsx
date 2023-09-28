@@ -4,7 +4,7 @@ import NavbarMenu from "@/components/NavbarMenu";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
-import { GlobalProvider } from "@/context/GlobalContext";
+import GlobalProvider from "@/context/GlobalContext";
 
 const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
 

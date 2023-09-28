@@ -9,7 +9,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const GlobalProvider = ({ children }: Props) => {
+export default function GlobalProvider({ children }: Props) {
   const [userData, setUserData] = useState<UserData>({
     _id: "",
     email: "",
@@ -31,4 +31,4 @@ export const GlobalProvider = ({ children }: Props) => {
     setOpenPopUp,
   };
   return <Global.Provider value={value}>{children}</Global.Provider>;
-};
+}
