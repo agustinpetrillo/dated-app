@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import axios, { AxiosError } from "axios";
-import { useState } from "react";
 
 export default function Settings() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
