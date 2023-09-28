@@ -23,7 +23,7 @@ export default function MainPage() {
   }
 
   return (
-    <BackgroundPhone className="grid items-center justify-between w-full min-h-0 grid-cols-2 bg-primary p-7">
+    <BackgroundPhone className="grid items-center justify-between min-h-0 grid-cols-2 bg-primary">
       <Matches />
       <LikeOrNot />
     </BackgroundPhone>

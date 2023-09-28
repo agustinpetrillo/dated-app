@@ -7,7 +7,7 @@ import Chat from "./Chat";
 export default function Matches() {
   const { userData } = useContext(Global) as GlobalContextType;
   return (
-    <section className="flex flex-col max-w-xs bg-red-700 rounded-lg">
+    <section className="flex flex-col max-w-xs bg-red-700">
       <div className="flex items-center gap-4 m-4">
         <Image
           src="/imgs/test.jpg"
