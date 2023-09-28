@@ -44,7 +44,7 @@ const NavbarMenu = () => {
 
   if (!loggingProvider) {
     return (
-      <nav className="fixed flex items-center justify-between w-full py-3 px-7">
+      <nav className="sticky top-0 z-50 flex items-center justify-between w-full py-3 shadow-lg px-7 bg-primary">
         <Link href="/home" className="flex">
           <Image
             alt="Date me logo"
@@ -132,7 +132,7 @@ const NavbarMenu = () => {
     );
   } // else {
   //   return (
-  //     <nav className="fixed flex items-center justify-between w-full py-4 px-7">
+  //     <nav className="sticky top-0 z-50 flex items-center justify-between w-full py-4 px-7 bg-primary">
   //       <Link href="/home" className="flex">
   //         <Image
   //           alt="Date me logo"

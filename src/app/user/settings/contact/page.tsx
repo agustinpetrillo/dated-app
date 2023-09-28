@@ -1,7 +1,7 @@
 const Contact = () => {
   return (
-    <section className="flex flex-col items-center justify-center p-10 text-white">
-      <h1>Do you need help?</h1>
+    <section className="flex flex-col px-10 text-white">
+      <h1 className="mb-5 text-xl font-bold">Do you need help?</h1>
       <form className="flex flex-col max-w-xs">
         <textarea
           name=""

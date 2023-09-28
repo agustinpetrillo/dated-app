@@ -9,8 +9,8 @@ const SidebarSettings = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col text-white">
-      <h1 className="p-2 mb-10 text-xl font-bold cursor-default">Settings</h1>
+    <nav className="flex flex-col text-white whitespace-nowrap">
+      <h1 className="px-2 mb-10 text-xl font-bold cursor-default">Settings</h1>
       <div className="flex flex-col text-sm">
         <Link
           href={`/user/settings`}

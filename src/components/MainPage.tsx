@@ -22,7 +22,7 @@ const MainPage = () => {
   }
 
   return (
-    <BackgroundPhone className="grid items-center justify-between w-full min-h-screen grid-cols-2 bg-primary">
+    <BackgroundPhone className="grid items-center justify-between w-full min-h-0 grid-cols-2 bg-primary p-7">
       <div className="p-4 m-auto bg-red-700 rounded-lg">
         <h1>Matches</h1>
       </div>
