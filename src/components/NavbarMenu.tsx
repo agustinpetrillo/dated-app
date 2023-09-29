@@ -35,7 +35,7 @@ export default function NavbarMenu() {
       }
     );
     res.then((data) => setUserData(data.data));
-  }, []);
+  }, [userData.email]);
 
   useEffect(() => {
     document.addEventListener("click", clickedOutside);
