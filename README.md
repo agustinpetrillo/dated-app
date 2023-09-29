@@ -1,34 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Hello everyone! This is probably the most complex web app I'm working as a side project. I hope y'll like it because it's a Full-Stack application.
 
-## Getting Started
+## If you didn't read the description of the project, the backend host shuts down when nobody is using it, so if you wanna use the web app, you will need to wait a bit!
 
-First, run the development server:
+Also if you wanna take a look of my backend project, it's in my repositories! I'm using NestJS with MongoDB and Moongose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Implementations
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here I'll be adding implementations and new things I'll be working until I finish the web app (!!This are not the final changes and designs, I'm just layouting!!):
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Server and client connected each other
+- Navbar with logo, home, settings and user avatar with pop-up options
+- Home page when you are not logged
+- Redirect routes
+- Protected routes (not functional at all)
+- Register form (pre alpha) connected to database
+- Login form (pre aplha) connected to database
+- NextAuth to connect with providers (not functional yet)
+- Settings panel
+- Edit profile settings (not functional yet)
+- Upload and change avatar (not functional at all)
+- Edit credentials (not functional at all)
+- Switch between english and spanish (not functional yet)
+- Help form (not functional yet)
+- Chat list (not functional yet)
+- Chat (not functional yet)
 
-## Learn More
+## Hotfixs
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Here I'll be adding all hotfixs:
