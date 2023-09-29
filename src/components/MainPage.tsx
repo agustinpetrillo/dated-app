@@ -36,17 +36,6 @@ export default function MainPage() {
         <h1 className="text-4xl">
           Welcome to <span className="text-red-500">Date me</span>
         </h1>
-        <div className="space-x-2">
-          <button
-            onClick={() => signIn()}
-            className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-          >
-            Login
-          </button>
-          <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline">
-            <Link href="/auth/signup">Create Account</Link>
-          </button>
-        </div>
       </div>
     );
   }
