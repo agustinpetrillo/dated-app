@@ -1,11 +1,9 @@
 "use client";
 
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import BackgroundPhone from "./reutilizable/BackgroundPhone";
 import LikeOrNot from "./LikeOrNot";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 import Matches from "./Matches";
