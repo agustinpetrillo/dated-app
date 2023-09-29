@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 import Matches from "./Matches";
+import Chat from "./Chat";
 
 export default function MainPage() {
   const { userData } = useContext(Global) as GlobalContextType;
@@ -23,9 +24,10 @@ export default function MainPage() {
   }
 
   return (
-    <BackgroundPhone className="grid items-center justify-between min-h-0 grid-cols-2 bg-primary">
+    <BackgroundPhone className="flex w-full min-h-0 bg-primary">
       <Matches />
-      <LikeOrNot />
+      {/* <LikeOrNot /> */}
+      <Chat />
     </BackgroundPhone>
   );
 }

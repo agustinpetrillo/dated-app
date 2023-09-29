@@ -6,127 +6,43 @@ import { GlobalContextType } from "@/types";
 export default function Chat() {
   const { userData } = useContext(Global) as GlobalContextType;
   return (
-    <section className="flex flex-col overflow-y-auto bg-gray-100">
-      <h5 className="p-4">Messages</h5>
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
+    <section className="flex flex-col w-full max-h-screen min-h-screen overflow-y-auto bg-gray-700">
+      {/* USER DETAILS */}
+      <div className="flex items-center justify-between p-4 text-white bg-gray-800">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/imgs/test.jpg"
+            width={35}
+            height={35}
+            alt="profile_avatar"
+            className="rounded-full"
+          />
+          <h5 className="capitalize">
+            {userData.name} {userData.last_name}
+          </h5>
+        </div>
+        <div>
+          <Image
+            src="/imgs/three-dots.jpg"
+            alt="three_dots"
+            width={15}
+            height={15}
+            className="cursor-pointer invert"
+          />
         </div>
       </div>
-      <hr />
 
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
+      {/* CHAT */}
+      <div className="w-full h-full"></div>
 
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
+      {/* SEND MESSAGES */}
+      <div className="p-4 text-white bg-gray-800">
+        <input
+          type="text"
+          className="w-full p-2 bg-gray-700 rounded-lg outline-none"
+          placeholder="Type a message"
         />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
       </div>
-      <hr />
-
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
-
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
-
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
-
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
-
-      <div className="flex gap-2 p-4 cursor-pointer hover:bg-gray-300">
-        <Image
-          src="/imgs/test.jpg"
-          width={55}
-          height={55}
-          alt="profile_avatar"
-          className="rounded-full"
-        />
-        <div className="flex flex-col">
-          <h5 className="font-semibold capitalize">{userData.name}</h5>
-          <p className="text-gray-800">Message they sent</p>
-        </div>
-      </div>
-      <hr />
     </section>
   );
 }

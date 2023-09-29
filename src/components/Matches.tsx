@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
-import Chat from "./Chat";
+import ChatList from "./ChatList";
 
 export default function Matches() {
   const { userData } = useContext(Global) as GlobalContextType;
@@ -20,7 +20,7 @@ export default function Matches() {
           {userData.name} {userData.last_name}
         </h5>
       </div>
-      <Chat />
+      <ChatList />
     </section>
   );
 }
