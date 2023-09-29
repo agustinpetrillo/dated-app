@@ -35,4 +35,6 @@ export interface GlobalContextType {
   setOpenPopUp: (openPopUp: object) => void;
   openChat: boolean;
   setOpenChat: (openChat: boolean) => void;
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
 }

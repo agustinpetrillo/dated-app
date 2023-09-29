@@ -14,10 +14,9 @@ import axios from "axios";
 import Loader from "./reutilizable/Loader";
 
 export default function MainPage() {
-  const { userData, setUserData, openChat } = useContext(
+  const { userData, setUserData, openChat, loading, setLoading } = useContext(
     Global
   ) as GlobalContextType;
-  const [loading, setLoading] = useState<boolean>(false);
   // const session = await getServerSession(authOptions);
 
   // if (!session) {

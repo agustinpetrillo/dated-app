@@ -2,7 +2,11 @@
 
 import SidebarSettings from "@/components/SidebarSettings";
 
-const SettingsLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex min-h-0 p-7">
       <SidebarSettings />
@@ -10,6 +14,4 @@ const SettingsLayout = ({ children }: { children: React.ReactNode }) => {
       {children}
     </div>
   );
-};
-
-export default SettingsLayout;
+}
