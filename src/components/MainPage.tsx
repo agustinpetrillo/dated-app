@@ -17,14 +17,16 @@ export default function MainPage() {
   //   redirect("/auth/login");
   // }
 
-  if (!userData) {
+  if (!userData.email) {
     redirect("/auth/login");
   }
 
-  return (
-    <BackgroundPhone className="flex w-full min-h-0 bg-primary">
-      <Matches />
-      {!openChat ? <LikeOrNot /> : <Chat />}
-    </BackgroundPhone>
-  );
+  if (!userData.email) {
+    return (
+      <BackgroundPhone className="flex w-full min-h-0 bg-primary">
+        <Matches />
+        {!openChat ? <LikeOrNot /> : <Chat />}
+      </BackgroundPhone>
+    );
+  }
 }

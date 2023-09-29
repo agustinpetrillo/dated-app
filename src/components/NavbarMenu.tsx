@@ -58,7 +58,7 @@ export default function NavbarMenu() {
           </span>
         </Link>
         <div className="flex text-black dark:text-white md:order-2">
-          {userData ? (
+          {userData.email ? (
             <div className="relative" ref={clickOutsideToCloseRef}>
               <Image
                 alt="User settings"
