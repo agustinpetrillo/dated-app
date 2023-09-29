@@ -1,6 +1,6 @@
 Hello everyone! This is probably the most complex web app I'm working as a side project. I hope y'll like it because it's a Full-Stack application.
 
-## If you didn't read the description of the project, the backend host shuts down when nobody is using it, so if you wanna use the web app, you will need to wait a bit!
+## If you didn't read the description of the project, the backend host shuts down when nobody is using it, so if you wanna use the web app, you'll need to wait a bit!
 
 Also if you wanna take a look of my backend project, it's in my repositories! I'm using NestJS with MongoDB and Moongose
 
