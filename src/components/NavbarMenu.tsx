@@ -3,16 +3,13 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
 import { signOut, signIn, useSession } from "next-auth/react";
 import logo from "../../public/logo.png";
 import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 
 export default function NavbarMenu() {
-  const { userData, setUserData, loggingProvider } = useContext(
-    Global
-  ) as GlobalContextType;
+  const { userData, loggingProvider } = useContext(Global) as GlobalContextType;
   const { data: session, status } = useSession();
   const [clicked, setClicked] = useState<boolean>(false);
   const clickOutsideToCloseRef = useRef<HTMLDivElement | HTMLImageElement>(
@@ -24,18 +21,6 @@ export default function NavbarMenu() {
       setClicked(false);
     }
   };
-
-  useEffect(() => {
-    const res = axios.get(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings/me`,
-      {
-        headers: {
-          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
-        },
-      }
-    );
-    res.then((data) => setUserData(data.data));
-  }, [userData.email]);
 
   useEffect(() => {
     document.addEventListener("click", clickedOutside);
