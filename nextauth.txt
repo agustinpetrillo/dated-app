@@ -7,6 +7,8 @@
 // // import EmailProvider from "next-auth/providers/email";
 // import CredentialsProvider from "next-auth/providers/credentials";
 
+// app/api/auth/[...nextAuth]/route.ts
+
 // export const authOptions: NextAuthOptions = {
 //   providers: [
 //     CredentialsProvider({
