@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import axios, { AxiosError } from "axios";
+import { Global } from "@/context/GlobalContext";
+import { GlobalContextType } from "@/types";
 
 export default function Settings() {
+  const { userData } = useContext(Global) as GlobalContextType;
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedImageSrc, setSelectedImageSrc] = useState<string>("");
 
@@ -23,6 +27,10 @@ export default function Settings() {
   const handleChangeProfileImage = () => {
     return;
   };
+
+  if (!userData.email) {
+    redirect("/auth/login");
+  }
 
   return (
     <section className="flex flex-col w-full min-h-0 px-10 text-white">
