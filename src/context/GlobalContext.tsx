@@ -21,6 +21,7 @@ export default function GlobalProvider({ children }: Props) {
     email: false,
     password: false,
   });
+  const [openChat, setOpenChat] = useState<boolean>(false);
 
   const value = {
     userData,
@@ -29,6 +30,8 @@ export default function GlobalProvider({ children }: Props) {
     setLoggingProvider,
     openPopUp,
     setOpenPopUp,
+    openChat,
+    setOpenChat,
   };
   return <Global.Provider value={value}>{children}</Global.Provider>;
 }

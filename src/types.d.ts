@@ -33,4 +33,6 @@ export interface GlobalContextType {
   setLoggingProvider: (loggingProvider: boolean) => void;
   openPopUp: PopUps;
   setOpenPopUp: (openPopUp: object) => void;
+  openChat: boolean;
+  setOpenChat: (openChat: boolean) => void;
 }

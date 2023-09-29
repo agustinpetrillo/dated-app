@@ -4,9 +4,9 @@ import { Global } from "@/context/GlobalContext";
 import { GlobalContextType } from "@/types";
 
 export default function Chat() {
-  const { userData } = useContext(Global) as GlobalContextType;
+  const { userData, setOpenChat } = useContext(Global) as GlobalContextType;
   return (
-    <section className="flex flex-col w-full max-h-screen min-h-screen overflow-y-auto bg-gray-700">
+    <section className="z-10 flex flex-col w-full max-h-screen min-h-screen overflow-y-auto bg-gray-700">
       {/* USER DETAILS */}
       <div className="flex items-center justify-between p-4 text-white bg-gray-800">
         <div className="flex items-center gap-2">
@@ -21,15 +21,14 @@ export default function Chat() {
             {userData.name} {userData.last_name}
           </h5>
         </div>
-        <div>
-          <Image
-            src="/imgs/three-dots.jpg"
-            alt="three_dots"
-            width={15}
-            height={15}
-            className="cursor-pointer invert"
-          />
-        </div>
+        <Image
+          src="/imgs/exit.png"
+          alt="exit"
+          width={25}
+          height={25}
+          className="cursor-pointer invert"
+          onClick={() => setOpenChat(false)}
+        />
       </div>
 
       {/* CHAT */}
