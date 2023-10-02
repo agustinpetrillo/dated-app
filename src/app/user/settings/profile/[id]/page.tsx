@@ -2,7 +2,6 @@
 
 import { useContext, useState } from "react";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType, PopUps } from "@/types";
 import axios, { AxiosError } from "axios";
 import ChangeEmail from "@/components/ChangeEmail";
 import ChangePassword from "@/components/ChangePassword";

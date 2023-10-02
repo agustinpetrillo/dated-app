@@ -5,7 +5,6 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import axios, { AxiosError } from "axios";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
 
 export default function Settings() {
   const { userData } = useContext(Global) as GlobalContextType;
