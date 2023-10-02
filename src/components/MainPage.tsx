@@ -1,13 +1,12 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { redirect } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import BackgroundPhone from "./reutilizable/BackgroundPhone";
 import LikeOrNot from "./LikeOrNot";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
 import Matches from "./Matches";
 import Chat from "./Chat";
 import axios from "axios";
@@ -29,6 +28,8 @@ export default function MainPage() {
 
   useEffect(() => {
     setLoading(true);
+
+    const controller = new AbortController();
     axios
       .get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL_API}/user/profile/settings/me`,
@@ -36,6 +37,7 @@ export default function MainPage() {
           headers: {
             Authorization: `Bearer ${window.localStorage.getItem("token")}`,
           },
+          signal: controller.signal,
         }
       )
       .then((data) => {
@@ -44,7 +46,10 @@ export default function MainPage() {
       .catch((error) => {
         // if (error instanceof AxiosError) setError(error.response?.data.message);
       });
+
     setLoading(false);
+
+    return () => controller.abort();
   }, []);
 
   if (loading) {

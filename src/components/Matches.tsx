@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import Image from "next/image";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
 import ChatList from "./ChatList";
 
 export default function Matches() {

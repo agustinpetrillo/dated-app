@@ -1,15 +1,15 @@
-export interface CreateUser {
+interface CreateUser {
   email: string;
   password: string | number;
   username: string;
 }
 
-export interface UserLogin {
+interface UserLogin {
   email: string;
   password: string | number;
 }
 
-export interface UserData {
+interface UserData {
   _id: string;
   email: string;
   name: string;
@@ -26,7 +26,7 @@ interface PopUps {
   password: boolean;
 }
 
-export interface GlobalContextType {
+interface GlobalContextType {
   userData: UserData;
   setUserData: (userData: userData) => void;
   loggingProvider: boolean;

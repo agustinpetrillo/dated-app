@@ -6,7 +6,6 @@ import Link from "next/link";
 import { signOut, signIn, useSession } from "next-auth/react";
 import logo from "../../public/logo.png";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
 
 export default function NavbarMenu() {
   const { userData, loggingProvider } = useContext(Global) as GlobalContextType;

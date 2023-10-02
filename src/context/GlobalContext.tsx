@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useState } from "react";
-import { UserData } from "@/types";
 
 export const Global = createContext({});
 

@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType, PopUps } from "@/types";
 
 export default function ChangeEmail() {
   const { openPopUp, setOpenPopUp } = useContext(Global) as GlobalContextType;

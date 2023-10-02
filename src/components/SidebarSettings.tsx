@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Global } from "@/context/GlobalContext";
-import { GlobalContextType } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
